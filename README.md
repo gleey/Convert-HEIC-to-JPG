@@ -14,18 +14,33 @@ Pastikan Anda telah menginstal Python 3 di sistem Anda.
 
 ## Instalasi Library yang Dibutuhkan
 
-Pasang library `pillow` dan `pillow-heif` terlebih dahulu menggunakan `pip`:
+Pasang library yang diperlukan dalam virtual environment:
 
 ```bash
-pip install pillow pillow-heif
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
 ```
 
 ## Cara Penggunaan
 
-Jalankan script dengan menentukan path folder foto yang ingin dikonversi sebagai argumen:
+### GUI dengan drag-and-drop
+
+Jalankan tanpa argumen:
 
 ```bash
-python convert.py "/path/ke/folder/foto"
+.venv/bin/python convert.py
 ```
 
-> **Catatan:** Jika argumen path folder tidak diisi, script akan berjalan pada folder aktif saat ini (working directory).
+Kemudian seret foto atau folder berisi HEIC/HEIF ke jendela, atau gunakan tombol
+**Pilih Foto** dan **Pilih Folder**.
+
+### Mode command-line
+
+Jalankan dengan menentukan path folder foto sebagai argumen:
+
+```bash
+.venv/bin/python convert.py "/path/ke/folder/foto"
+```
+
+> **Catatan:** Jika argumen tidak diberikan, aplikasi membuka GUI. Untuk mode CLI,
+> folder yang diberikan beserta subfoldernya dipindai secara rekursif.
